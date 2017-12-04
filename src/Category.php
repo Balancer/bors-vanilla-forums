@@ -5,6 +5,7 @@ namespace B2\Vanilla;
 class Category extends ObjectDb
 {
 	function table_name() { return 'GDN_Category'; }
+
 	function table_fields()
 	{
 		return [
