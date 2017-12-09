@@ -21,7 +21,7 @@ class Category extends ObjectDb
 			'Archived',
 			'title' => 'Name',
 			'UrlCode',
-			'Description',
+			'description' => 'Description',
 			'Sort',
 			'CssClass',
 			'image_file_name' => 'Photo',
