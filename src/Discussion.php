@@ -12,23 +12,23 @@ class Discussion extends ObjectDb
 			'id' => 'DiscussionID',
 			'Type',
 			'ForeignID',
-			'CategoryID',
-			'InsertUserID',
+			'category_id' => 'CategoryID',
+			'author_id' => ['name' => 'InsertUserID', 'class' => User::class],
 			'UpdateUserID',
 			'FirstCommentID',
 			'LastCommentID',
-			'Name',
-			'Body' => ['type' => 'text'],
+			'title' => 'Name',
+			'source' => ['name' => 'Body', 'type' => 'markdown'],
 			'Format',
 			'Tags' => ['type' => 'text'],
-			'CountComments',
+			'num_replies' => 'CountComments',
 			'CountBookmarks',
 			'CountViews',
 			'Closed',
 			'Announce',
 			'Sink',
-			'DateInserted',
-			'DateUpdated',
+			'create_time' => 'UNIX_TIMESTAMP(`DateInserted`)',
+			'modify_time' => 'UNIX_TIMESTAMP(`DateUpdated`)',
 			'InsertIPAddress',
 			'UpdateIPAddress',
 			'DateLastComment',
@@ -37,5 +37,25 @@ class Discussion extends ObjectDb
 			'Attributes' => ['type' => 'text'],
 			'RegardingID',
 		];
+	}
+
+	function html() { return \bors_markup_markdown::factory()->parse($this->source()); }
+
+	function snip($length = 512)
+	{
+		return strip_text($this->html(), $length);
+	}
+
+	function image()
+	{
+		if(!preg_match('@!\[.*?\]\((.+?) ""\)@', $this->source(), $m))
+			return \B2\Nil::factory();
+
+		return \bors_image_simplest::load($m[1]);
+	}
+
+	function thumb()
+	{
+		return $this->image()->thumbnail('64x');
 	}
 }

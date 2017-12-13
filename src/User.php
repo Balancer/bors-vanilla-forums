@@ -10,7 +10,7 @@ class User extends ObjectDb
 	{
 		return [
 			'id' => 'UserID',
-			'Name',
+			'title' => 'Name',
 			'Password',
 			'HashMethod',
 			'Photo',

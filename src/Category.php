@@ -20,7 +20,7 @@ class Category extends ObjectDb
 			'AllowDiscussions',
 			'Archived',
 			'title' => 'Name',
-			'UrlCode',
+			'slug' => 'UrlCode',
 			'description' => 'Description',
 			'Sort',
 			'CssClass',
