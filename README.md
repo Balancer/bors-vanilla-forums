@@ -4,7 +4,7 @@ Under construction.
 
 ```php
 
-$vanilla = new \B2\Vanilla('VANILLA_DB');
+$vanilla = new \B2\Vanilla('/path/to/vanilla/instance');
 
 $latest_post = $vanilla->find()->post()->order('-create_time')->first();
 ```
