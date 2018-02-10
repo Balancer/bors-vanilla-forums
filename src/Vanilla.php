@@ -2,12 +2,12 @@
 
 namespace B2;
 
-define('APPLICATION', 'Vanilla');
-define('APPLICATION_VERSION', '2.3.1');
-define('DS', '/');
-define('PATH_ROOT', getcwd());
+//define('APPLICATION', 'Vanilla');
+//define('APPLICATION_VERSION', '2.3.1');
+//define('DS', '/');
+//define('PATH_ROOT', '/var/www/offzone.spr.wrk.ru/htdocs/vanilla');
 
-define('PATH_CACHE', PATH_ROOT.'/cache');
+// define('PATH_CACHE', PATH_ROOT.'/cache');
 
 class Vanilla extends \B2\Obj
 {
@@ -42,8 +42,11 @@ class Vanilla extends \B2\Obj
 	{
 		$vanilla = parent::factory();
 
+		require '/var/www/offzone.spr.wrk.ru/htdocs/vanilla/bootstrap.php';
+
 		require '/var/www/offzone.spr.wrk.ru/htdocs/vanilla/conf/config-defaults.php';
 		require '/var/www/offzone.spr.wrk.ru/htdocs/vanilla/conf/config.php';
+
 		// $Configuration
 
 		$vanilla->CookieName = $Configuration['Garden']['Cookie']['Name'];
@@ -54,6 +57,7 @@ class Vanilla extends \B2\Obj
 		$vanilla->VolatileMarker = $vanilla->CookieName.'-Volatile';
 		$vanilla->PersistExpiry = defval($Configuration['Garden']['Cookie'], 'PersistExpiry', '30 days');
 		$vanilla->SessionExpiry = defval($Configuration['Garden']['Cookie'], 'SessionExpiry', '2 days');
+
 
 		return $vanilla;
 	}
@@ -202,6 +206,11 @@ class Vanilla extends \B2\Obj
 		$Payload = array_merge(array($UserID, $Expiration), $Payload);
 
 		return $Payload;
+	}
+
+	function session()
+	{
+		return \Gdn::session();
 	}
 }
 
