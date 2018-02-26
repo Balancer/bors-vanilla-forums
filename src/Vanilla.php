@@ -5,7 +5,7 @@ namespace B2;
 //define('APPLICATION', 'Vanilla');
 //define('APPLICATION_VERSION', '2.3.1');
 //define('DS', '/');
-//define('PATH_ROOT', '/var/www/offzone.spr.wrk.ru/htdocs/vanilla');
+//define('PATH_ROOT', '/var/www/www.off-zone.ru/htdocs/vanilla');
 
 // define('PATH_CACHE', PATH_ROOT.'/cache');
 
@@ -42,10 +42,10 @@ class Vanilla extends \B2\Obj
 	{
 		$vanilla = parent::factory();
 
-		require '/var/www/offzone.spr.wrk.ru/htdocs/vanilla/bootstrap.php';
+		require '/var/www/www.off-zone.ru/htdocs/vanilla/bootstrap.php';
 
-		require '/var/www/offzone.spr.wrk.ru/htdocs/vanilla/conf/config-defaults.php';
-		require '/var/www/offzone.spr.wrk.ru/htdocs/vanilla/conf/config.php';
+		require '/var/www/www.off-zone.ru/htdocs/vanilla/conf/config-defaults.php';
+		require '/var/www/www.off-zone.ru/htdocs/vanilla/conf/config.php';
 
 		// $Configuration
 
