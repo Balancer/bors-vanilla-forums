@@ -42,10 +42,10 @@ class Vanilla extends \B2\Obj
 	{
 		$vanilla = parent::factory();
 
-		require '/var/www/www.off-zone.ru/htdocs/vanilla/bootstrap.php';
+		require $_SERVER['DOCUMENT_ROOT'].'/vanilla/bootstrap.php';
 
-		require '/var/www/www.off-zone.ru/htdocs/vanilla/conf/config-defaults.php';
-		require '/var/www/www.off-zone.ru/htdocs/vanilla/conf/config.php';
+		require $_SERVER['DOCUMENT_ROOT'].'/vanilla/conf/config-defaults.php';
+		require $_SERVER['DOCUMENT_ROOT'].'/vanilla/conf/config.php';
 
 		// $Configuration
 
