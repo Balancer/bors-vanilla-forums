@@ -25,7 +25,7 @@ class Category extends ObjectDb
 			'Sort',
 			'CssClass',
 			'image_file_name' => 'Photo',
-			'PermissionCategoryID',
+			'permission_category_id' => 'PermissionCategoryID',
 			'PointsCategoryID',
 			'HideAllDiscussions',
 			'DisplayAs',
