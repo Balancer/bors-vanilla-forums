@@ -4,6 +4,9 @@ namespace B2\Vanilla;
 
 class User extends ObjectDb
 {
+	var $class_title = 'пользователь';
+	var $class_title_m = 'пользователи';
+
 	function table_name() { return 'GDN_User'; }
 
 	function table_fields()
